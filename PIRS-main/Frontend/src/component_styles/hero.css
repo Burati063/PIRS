@@ -1,0 +1,40 @@
+.light-hero {
+  background-color: black;
+  background: linear-gradient(to bottom, #0a0c2c80 3rem, transparent 10rem);
+  background-image: url("../images/original-be791dc23bb0420bafdfc3598f9f3f24.png");
+  background-position: right;
+  background-size: cover;
+  height: 50vh;
+
+  color: black;
+  padding: 15rem 3rem 6rem;
+
+  /* @media (max-width: 576px) {
+    background: linear-gradient(to bottom, #0a0c2c80 3rem, transparent),
+      url(../images/original-be791dc23bb0420bafdfc3598f9f3f24.png);
+    background-position: center, bottom left;
+    background-size: contain;
+    align-items: flex-start;
+    padding-top: 7.5rem;
+    height: 100px;
+    max-height: 720px;
+  } */
+}
+.heroInner {
+  color: black;
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+span {
+  max-width: 50%;
+}
+/* h1 {
+  font-size: clamp(2rem, 5.5vw, 3.25rem);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+} */
+.light-image {
+  background-color: #fafaf0;
+  height: 50vh;
+}

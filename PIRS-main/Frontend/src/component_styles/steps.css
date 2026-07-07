@@ -1,0 +1,19 @@
+.img1 {
+  width: 50%;
+}
+.img2 {
+  width: 40%;
+}
+.img3 {
+  width: 55%;
+}
+.row {
+  color: black;
+}
+.col {
+  border-radius: 20px;
+}
+.col:hover {
+  background-color: rgb(231, 231, 231);
+  cursor: pointer;
+}
