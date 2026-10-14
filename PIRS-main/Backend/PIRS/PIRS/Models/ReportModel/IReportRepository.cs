@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components.Routing;
-using System.Device;
-using System.Device.Location;
-using System.Reflection;
+using GeoCoordinatePortable;
 
 namespace PIRS.Models.ReportModel
 {

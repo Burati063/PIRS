@@ -55,7 +55,7 @@ builder.Services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounte
 builder.Services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>(); 
 builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 builder.Services.AddDbContext<PirsContext>(options => {
-    options.UseSqlServer(builder.Configuration.
+    options.UseNpgsql(builder.Configuration.
         GetConnectionString("MyConnection"))
     .UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()));
     options.EnableSensitiveDataLogging();
@@ -66,7 +66,10 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       builder =>
                       {
-                          builder.WithOrigins("http://localhost:5173")
+                          builder.WithOrigins(
+                              "http://localhost:5173",
+                              "https://YOUR_APP.vercel.app"   // TODO: replace with your real Vercel URL after deploying frontend
+                          )
                           .AllowAnyMethod()
                           .AllowAnyHeader();
                       });
@@ -100,12 +103,9 @@ builder.Services.AddScoped<IReportRepository, ReportRepository>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// Swagger enabled in all environments so you can verify the live API on Render
+app.UseSwagger();
+app.UseSwaggerUI();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseCors(MyAllowSpecificOrigins);

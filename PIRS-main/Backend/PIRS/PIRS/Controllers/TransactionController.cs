@@ -18,12 +18,14 @@ namespace PIRS.Controllers
         private readonly ITransactionRepository _transactionRepository;
         private readonly UserManager<AppUser> _userManager;
         private readonly IReportRepository _reportRepository;
+        private readonly IConfiguration _configuration;
 
-        public TransactionController(ITransactionRepository transactionRepository, UserManager<AppUser> userManager, IReportRepository reportRepository)
+        public TransactionController(ITransactionRepository transactionRepository, UserManager<AppUser> userManager, IReportRepository reportRepository, IConfiguration configuration)
         {
             _transactionRepository = transactionRepository;
             _userManager = userManager;
             _reportRepository = reportRepository;
+            _configuration = configuration;
         }
 
         [HttpPost]
@@ -33,7 +35,7 @@ namespace PIRS.Controllers
             var contractor = await _userManager.FindByIdAsync(transactionDto.ContractorId);
             var report = _reportRepository.GetById(transactionDto.ReportId);
 
-            Chapa chapa = new("CHASECK_TEST-rsh3UiMpIBytuEGhtyBPKtRU6ziR7Anj");
+            Chapa chapa = new(_configuration["Chapa:SecretKey"]);
 
             var ID = Chapa.GetUniqueRef();
 

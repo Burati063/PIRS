@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PIRS.Controllers;
 using PIRS.Models.UserModel;
-using System.Device.Location;
+using GeoCoordinatePortable;
 
 namespace PIRS.Models.ReportModel
 {

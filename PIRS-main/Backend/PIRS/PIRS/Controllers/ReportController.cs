@@ -6,8 +6,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using PIRS.Models.ReportModel;
 using PIRS.Models.UserModel;
-using System.Device.Location;
-using System.Security.Permissions;
+using GeoCoordinatePortable;
 
 namespace PIRS.Controllers
 {

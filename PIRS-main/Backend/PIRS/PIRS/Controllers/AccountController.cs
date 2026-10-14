@@ -111,7 +111,7 @@ namespace PIRS.Controllers
                 jwtIssuer,
                 jwtAudience,
                 claims,
-                //expires: expiry,
+                expires: DateTime.UtcNow.AddHours(8),
                 signingCredentials: credentials
             );
 

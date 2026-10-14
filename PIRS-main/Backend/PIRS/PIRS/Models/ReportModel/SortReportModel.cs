@@ -1,4 +1,4 @@
-﻿using System.Device.Location;
+﻿using GeoCoordinatePortable;
 
 namespace PIRS.Models.ReportModel
 {
